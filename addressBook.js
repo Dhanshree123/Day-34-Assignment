@@ -1,3 +1,4 @@
+//UC1
 class Contact{
     firstName;
     lastName;
