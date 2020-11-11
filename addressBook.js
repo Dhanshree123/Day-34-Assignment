@@ -112,3 +112,12 @@ addressBookArray.push(contactTwo);
 console.log(addressBookArray);
 editContactDetails("Seema","Dutta");
 console.log(addressBookArray);
+
+console.log('delete contact :-');
+let indexToDelete;
+addressBookArray.forEach(c=> {
+    if(c.firstName=="Reema" && c.lastName=="Singh")   
+     indexToDelete = addressBookArray.indexOf(c);
+});
+addressBookArray.splice(indexToDelete, 1);
+console.log(addressBookArray);
