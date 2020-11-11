@@ -1,3 +1,4 @@
+const prompt=require('prompt-sync')();
 class Contact{
 
     constructor(...parameter)
@@ -92,10 +93,22 @@ class Contact{
     }
 
 }
+function editContactDetails(firstName,lastName){
+    let contact;
+    addressBookArray.forEach(c=>{
+        if(c.firstName==firstName && c.lastName==lastName)
+            contact=c;
+    });
+    console.log("Contact to edit "+contact);
+    address=prompt("Enter the new Address:- ");
+    contact.address=address;
 
+}
 let addressBookArray = new Array();
 let contactOne = new Contact("Seema","Dutta","181 Housing","Pune","Maharashtra",423111,9999999999,"seemaD@gmail.com");
 addressBookArray.push(contactOne);
 let contactTwo = new Contact("Reema","Singh","183 Housing","Pune","Maharashtra",423111,8899999999,"reemaS@gmail.com");
 addressBookArray.push(contactTwo);
+console.log(addressBookArray);
+editContactDetails("Seema","Dutta");
 console.log(addressBookArray);
