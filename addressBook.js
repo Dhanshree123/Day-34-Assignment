@@ -121,3 +121,4 @@ addressBookArray.forEach(c=> {
 });
 addressBookArray.splice(indexToDelete, 1);
 console.log(addressBookArray);
+console.log("Number of contacts is "+addressBookArray.reduce(count=> count+1,0));
