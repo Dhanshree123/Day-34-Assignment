@@ -93,6 +93,14 @@ class Contact{
     }
 
 }
+function getContact(firstName,lastName){
+let contact;
+    addressBookArray.forEach(c=>{
+        if(c.firstName==firstName && c.lastName==lastName)
+            contact=c;
+    });
+    return contact;
+}
 function editContactDetails(firstName,lastName){
     let contact;
     addressBookArray.forEach(c=>{
@@ -106,10 +114,25 @@ function editContactDetails(firstName,lastName){
 }
 let addressBookArray = new Array();
 let contactOne = new Contact("Seema","Dutta","181 Housing","Pune","Maharashtra",423111,9999999999,"seemaD@gmail.com");
-addressBookArray.push(contactOne);
+if(getContact(contactOne.firstName,contactOne.lastName) == null)
+     addressBookArray.push(contactOne);
+else
+   console.log("Duplicate Entry");
+
 let contactTwo = new Contact("Reema","Singh","183 Housing","Pune","Maharashtra",423111,8899999999,"reemaS@gmail.com");
-addressBookArray.push(contactTwo);
+if(getContact(contactTwo.firstName,contactTwo.lastName) == null)
+     addressBookArray.push(contactTwo);
+else
+   console.log("Duplicate Entry");
 console.log(addressBookArray);
+
+let contactThree = new Contact("Reema","Singh","183 Housing","Pune","Maharashtra",423111,8899999999,"reemaS@gmail.com");
+if(getContact(contactThree.firstName,contactThree.lastName) == null)
+     addressBookArray.push(contactThree);
+else
+   console.log("Duplicate Entry");
+console.log(addressBookArray);
+
 editContactDetails("Seema","Dutta");
 console.log(addressBookArray);
 
@@ -119,6 +142,8 @@ addressBookArray.forEach(c=> {
     if(c.firstName=="Reema" && c.lastName=="Singh")   
      indexToDelete = addressBookArray.indexOf(c);
 });
+
+
 addressBookArray.splice(indexToDelete, 1);
 console.log(addressBookArray);
 console.log("Number of contacts is "+addressBookArray.reduce(count=> count+1,0));
