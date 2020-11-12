@@ -167,7 +167,7 @@ else
    console.log("Duplicate Entry");
 console.log(addressBookArray);
 
-let contactFour = new Contact("Jiya","Singh","183 Housing","Surat","Gujrat",423111,8899999999,"reemaS@gmail.com");
+let contactFour = new Contact("Jiya","Singh","183 Housing","Surat","Gujrat",923111,8899999999,"reemaS@gmail.com");
 if(getContact(contactFour.firstName,contactFour.lastName) == null)
      addressBookArray.push(contactFour);
 else
@@ -195,4 +195,6 @@ console.log(viewByState("Maharashtra"));
 console.log("Number of contacts in Pune "+countByCity("Pune"));
 console.log("Number of contacts in Maharashtra "+countByState("Maharashtra"));
 addressBookArray.sort((contact1, contact2) => contact1.firstName.localeCompare(contact2.firstName));
+console.log(addressBookArray);
+addressBookArray.sort((contact1, contact2) => contact1.zip-contact2.zip);
 console.log(addressBookArray);
