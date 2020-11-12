@@ -112,6 +112,23 @@ function editContactDetails(firstName,lastName){
     contact.address=address;
 
 }
+function isPersonInCity(firstName,lastName,city){
+    listByCity = addressBookArray.filter(contact=> contact.city==city && contact.firstName==firstName && contact.lastName==lastName);
+    if(listByCity.length > 0)
+     return true;
+ 
+    else
+     return false;
+ }
+ 
+ function isPersonInState(firstName,lastName,state){
+     listByState = addressBookArray.filter(contact=> contact.state==state && contact.firstName==firstName && contact.lastName==lastName);
+     if(listByState.length > 0)
+      return true;
+  
+     else
+      return false;
+  }
 let addressBookArray = new Array();
 let contactOne = new Contact("Seema","Dutta","181 Housing","Pune","Maharashtra",423111,9999999999,"seemaD@gmail.com");
 if(getContact(contactOne.firstName,contactOne.lastName) == null)
@@ -147,3 +164,5 @@ addressBookArray.forEach(c=> {
 addressBookArray.splice(indexToDelete, 1);
 console.log(addressBookArray);
 console.log("Number of contacts is "+addressBookArray.reduce(count=> count+1,0));
+console.log(isPersonInCity("Seema","Singh","Pune"));
+console.log(isPersonInState("Seema","Dutta","Maharashtra"));
