@@ -129,6 +129,14 @@ function isPersonInCity(firstName,lastName,city){
      else
       return false;
   }
+
+  function viewByCity(city){
+    return addressBookArray.filter(contact=> contact.city==city);
+  }
+
+  function viewByState(state){
+    return addressBookArray.filter(contact=> contact.state==state);
+  }
 let addressBookArray = new Array();
 let contactOne = new Contact("Seema","Dutta","181 Housing","Pune","Maharashtra",423111,9999999999,"seemaD@gmail.com");
 if(getContact(contactOne.firstName,contactOne.lastName) == null)
@@ -150,6 +158,13 @@ else
    console.log("Duplicate Entry");
 console.log(addressBookArray);
 
+let contactFour = new Contact("Jiya","Singh","183 Housing","Surat","Gujrat",423111,8899999999,"reemaS@gmail.com");
+if(getContact(contactFour.firstName,contactFour.lastName) == null)
+     addressBookArray.push(contactFour);
+else
+   console.log("Duplicate Entry");
+console.log(addressBookArray);
+
 editContactDetails("Seema","Dutta");
 console.log(addressBookArray);
 
@@ -166,3 +181,5 @@ console.log(addressBookArray);
 console.log("Number of contacts is "+addressBookArray.reduce(count=> count+1,0));
 console.log(isPersonInCity("Seema","Singh","Pune"));
 console.log(isPersonInState("Seema","Dutta","Maharashtra"));
+console.log(viewByCity("Pune"));
+console.log(viewByState("Maharashtra"));
