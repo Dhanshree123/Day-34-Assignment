@@ -137,6 +137,15 @@ function isPersonInCity(firstName,lastName,city){
   function viewByState(state){
     return addressBookArray.filter(contact=> contact.state==state);
   }
+  function countByCity(city){
+    cityList=addressBookArray.filter(contact=> contact.city==city);
+    return cityList.reduce(count=> count+1,0);
+}
+
+ function countByState(state){
+    stateList=addressBookArray.filter(contact=> contact.state==state);
+    return stateList.reduce(count=> count+1,0);
+}
 let addressBookArray = new Array();
 let contactOne = new Contact("Seema","Dutta","181 Housing","Pune","Maharashtra",423111,9999999999,"seemaD@gmail.com");
 if(getContact(contactOne.firstName,contactOne.lastName) == null)
@@ -183,3 +192,5 @@ console.log(isPersonInCity("Seema","Singh","Pune"));
 console.log(isPersonInState("Seema","Dutta","Maharashtra"));
 console.log(viewByCity("Pune"));
 console.log(viewByState("Maharashtra"));
+console.log("Number of contacts in Pune "+countByCity("Pune"));
+console.log("Number of contacts in Maharashtra "+countByState("Maharashtra"));
